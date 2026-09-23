@@ -27,8 +27,6 @@ Take `DeepSeek-Harness-Setup.exe` from the latest [release](https://github.com/x
 | Windows file version | `0.1.6.1` |
 | Target | x64, Windows 10 or later |
 
-The installer is a release asset, never a committed file: GitHub rejects any single file above 100 MiB in a git push.
-
 ## Verify the file
 
 Compare the digest before you run anything. Both commands were run against this build and return the same value.
