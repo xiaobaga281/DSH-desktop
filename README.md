@@ -22,7 +22,7 @@ Take `DeepSeek-Harness-Setup.exe` from the latest [release](https://github.com/x
 | Item | Value |
 | --- | --- |
 | File | `DeepSeek-Harness-Setup.exe` |
-| Size | 554,552,648 bytes |
+| Size | 554,727,395 bytes |
 | App version | `0.1.6-alpha.1` |
 | Windows file version | `0.1.6.1` |
 | Target | x64, Windows 10 or later |
@@ -39,7 +39,7 @@ certutil -hashfile .\DeepSeek-Harness-Setup.exe SHA256
 Expected SHA-256:
 
 ```text
-09FAD85F355375C5C0C8E0097FAEFA3277FD910837B40722A157BF1FAF1A1EAC
+3C20FE37E014A76A9D1B268FFAED1B8CE646AB1447A0C035674CE20D661C52DD
 ```
 
 A mismatch means the download is not this build. Do not install it.
@@ -52,7 +52,7 @@ Double-click the installer and follow the wizard, or run it without interaction.
 .\DeepSeek-Harness-Setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
 ```
 
-To pick another location, add `/DIR`. This exact command completed in 64 seconds with exit code 0.
+To pick another location, add `/DIR`. Both forms were run twice on this build's family: exit code 0, no elevation prompt, and no application start.
 
 ```powershell
 .\DeepSeek-Harness-Setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /DIR="D:\DeepSeek-Harness"
@@ -95,7 +95,7 @@ The uninstaller removes the application directory and its own Start Menu entry. 
 
 ## What this build changes over the base
 
-The base project ships a CLI and a plugin kernel. This build turns it into a desktop product. Measured against a pristine copy of the same base version: 11,239 base files become 11,853, of which 439 are modified base files and 614 are added here. Nothing is deleted. The work is grouped into 40 capability surfaces.
+The base project ships a CLI and a plugin kernel. This build turns it into a desktop product. Measured against a pristine copy of the same base version: 11,239 base files become 11,853, of which 440 are modified base files and 614 are added here. Nothing is deleted. The work is grouped into 40 capability surfaces.
 
 | Area | What you get that the base does not do |
 | --- | --- |
@@ -110,8 +110,7 @@ The base project ships a CLI and a plugin kernel. This build turns it into a des
 
 ## Known limitations
 
-- Two host plugin entries report `failed to import` when the desktop boots: `session-council` and `dsh-client-ui-operations`. The source checkout shows the same two lines, so this is not a packaging gap. The visible consequence is that a fresh store has no `操作` (Operations) section in Settings.
-- The 15-item desktop smoke on a fresh store returns 11 pass, 2 fail, 2 skip. The two failures are the unconfigured composer and the missing `操作` section above, and a source checkout in the same state reproduces them exactly.
+- The 15-item desktop smoke on a fresh store returns 12 pass, 1 fail, 2 skip. The one failure is the composer waiting for a workspace, which is the state described under [First run](#first-run), and a source checkout in the same state reproduces it.
 - This build is x64 Windows only.
 - It is a personal fork maintained alongside the base project, so expect no upgrade promise, no support channel, and no security advisory flow.
 

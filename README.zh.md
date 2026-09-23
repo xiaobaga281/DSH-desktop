@@ -22,7 +22,7 @@
 | 项目 | 值 |
 | --- | --- |
 | 文件 | `DeepSeek-Harness-Setup.exe` |
-| 大小 | 554,552,648 字节 |
+| 大小 | 554,727,395 字节 |
 | 应用版本 | `0.1.6-alpha.1` |
 | Windows 文件版本 | `0.1.6.1` |
 | 适用平台 | x64，Windows 10 及以上 |
@@ -39,7 +39,7 @@ certutil -hashfile .\DeepSeek-Harness-Setup.exe SHA256
 期望的 SHA-256：
 
 ```text
-09FAD85F355375C5C0C8E0097FAEFA3277FD910837B40722A157BF1FAF1A1EAC
+3C20FE37E014A76A9D1B268FFAED1B8CE646AB1447A0C035674CE20D661C52DD
 ```
 
 对不上就说明你拿到的不是这个构建，不要装。
@@ -52,7 +52,7 @@ certutil -hashfile .\DeepSeek-Harness-Setup.exe SHA256
 .\DeepSeek-Harness-Setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
 ```
 
-要换位置就加 `/DIR`。下面这条命令实测 64 秒完成，退出码 0。
+要换位置就加 `/DIR`。两种写法都在这个构建上实测过两遍：退出码 0、不弹提权框、也不会顺手启动应用。
 
 ```powershell
 .\DeepSeek-Harness-Setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /DIR="D:\DeepSeek-Harness"
@@ -95,7 +95,7 @@ certutil -hashfile .\DeepSeek-Harness-Setup.exe SHA256
 
 ## 相对基座改了什么
 
-基座项目发布的是 CLI 和插件内核，这个构建把它变成桌面产品。与同版本纯净基座副本逐文件比对：11,239 个基座文件变成 11,853 个，其中 439 个是改过的基座文件、614 个是这里新增的，没有删除任何文件，全部工作分成 40 个能力面。
+基座项目发布的是 CLI 和插件内核，这个构建把它变成桌面产品。与同版本纯净基座副本逐文件比对：11,239 个基座文件变成 11,853 个，其中 440 个是改过的基座文件、614 个是这里新增的，没有删除任何文件，全部工作分成 40 个能力面。
 
 | 方面 | 基座没有、这里有的能力 |
 | --- | --- |
@@ -110,8 +110,7 @@ certutil -hashfile .\DeepSeek-Harness-Setup.exe SHA256
 
 ## 已知限制
 
-- 桌面启动时有两个 host 插件行报 `failed to import`：`session-council` 与 `dsh-client-ui-operations`。源码工作树打出完全相同的两行，所以这不是打包漏了东西；可见后果是全新 store 的设置里没有 `操作` 分区。
-- 15 项桌面冒烟在全新 store 上的结果是 11 通过、2 失败、2 跳过。两条失败就是上面那个未配置的输入框和缺失的 `操作` 分区，同状态下的源码工作树复现结果一模一样。
+- 15 项桌面冒烟在全新 store 上的结果是 12 通过、1 失败、2 跳过。唯一那条失败就是输入框在等工作区，也就是[首次启动](#首次启动)描述的状态，同状态下的源码工作树会复现同一条。
 - 这个构建只支持 x64 Windows。
 - 它是跟着基座一起维护的个人分支，所以没有升级承诺、没有支持渠道、也没有安全公告流程。
 
