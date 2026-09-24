@@ -22,7 +22,7 @@
 | 项目 | 值 |
 | --- | --- |
 | 文件 | `DeepSeek-Harness-Setup.exe` |
-| 大小 | 554,729,567 字节 |
+| 大小 | 554,730,507 字节 |
 | 应用版本 | `0.1.6-alpha.1` |
 | Windows 文件版本 | `0.1.6.1` |
 | 适用平台 | x64，Windows 10 及以上 |
@@ -39,7 +39,7 @@ certutil -hashfile .\DeepSeek-Harness-Setup.exe SHA256
 期望的 SHA-256：
 
 ```text
-D8441645D344DA03F88381BACA3D8A7E4301DC410BB6BA0102F3CAFA5051A66E
+06E7D00D357180820ABB5BBFD49AD1DB786095194FACE9AA13456CF6646834C5
 ```
 
 对不上就说明你拿到的不是这个构建，不要装。
@@ -141,4 +141,4 @@ powershell -File scripts\package-desktop.ps1
 
 本页数字来自 2026-09-24 在一台 x64 Windows 机器上的实测：安装包摘要、静默安装与卸载的实际运行、与纯净基座树的文件数比对，以及跑在安装副本上的桌面冒烟。市场的条目数是从安装副本里读回来的，并且通过它自己的界面真装了一个技能和一个 MCP 服务。双击向导路径和桌面快捷方式任务没有被实际验证。
 
-在 release 附件被换掉之前，那里下载到的仍是 13:01 之前（03:28）的构建：554,727,395 字节、SHA-256 `3C20FE37E014A76A9D1B268FFAED1B8CE646AB1447A0C035674CE20D661C52DD`，不含市场相关的几处修复。上面的大小与摘要是 13:01 对 `dist-exe\DeepSeek-Harness-Setup.exe` 用文中两条命令实测的值，要挂的就该是这个文件。
+在 release 附件被换掉之前，那里下载到的仍是 13:01 之前（03:28）的构建：554,727,395 字节、SHA-256 `3C20FE37E014A76A9D1B268FFAED1B8CE646AB1447A0C035674CE20D661C52DD`，不含市场相关的几处修复。上面的大小与摘要是 14:38 对 `dist-exe\DeepSeek-Harness-Setup.exe` 用文中两条命令实测的值，要挂的就该是这个文件。
