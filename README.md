@@ -141,4 +141,4 @@ This repository carries an Apache-2.0 `LICENSE` file for the material it publish
 
 Numbers in this page come from measurements taken on 2026-09-24 on one x64 Windows machine: the installer digest, the silent install and uninstall runs, the file-count diff against a pristine base tree, and the desktop smoke run against the installed copy. The marketplace counts were read back from the installed copy, and one skill and one MCP server were installed through its own UI. The double-click wizard path and the desktop-shortcut task were not exercised.
 
-Until the release asset is replaced, the download there is the 03:28 build (554,727,395 bytes, SHA-256 `3C20FE37E014A76A9D1B268FFAED1B8CE646AB1447A0C035674CE20D661C52DD`), which predates the marketplace fixes. The values above were measured at 14:38 on `dist-exe\DeepSeek-Harness-Setup.exe` with both commands shown, and that is the file to attach.
+The smoke tally above was measured on an installed copy built at 12:46 the same day. The attached build (14:38) adds the marketplace fixes on top of it and was checked by reading the files inside the package, not by a second install run.
