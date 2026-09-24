@@ -22,14 +22,14 @@
 | 项目 | 值 |
 | --- | --- |
 | 文件 | `DeepSeek-Harness-Setup.exe` |
-| 大小 | 554,727,395 字节 |
+| 大小 | 554,729,567 字节 |
 | 应用版本 | `0.1.6-alpha.1` |
 | Windows 文件版本 | `0.1.6.1` |
 | 适用平台 | x64，Windows 10 及以上 |
 
 ## 校验文件
 
-运行之前先比对摘要。上面的大小是 release 下载实际返回的 `Content-Length`，下面的摘要是 GitHub 为那个附件记录的 SHA-256。
+运行之前先比对摘要。下面两条命令都在这个构建上跑过，返回同一个值。
 
 ```powershell
 Get-FileHash -Algorithm SHA256 .\DeepSeek-Harness-Setup.exe
@@ -39,7 +39,7 @@ certutil -hashfile .\DeepSeek-Harness-Setup.exe SHA256
 期望的 SHA-256：
 
 ```text
-3C20FE37E014A76A9D1B268FFAED1B8CE646AB1447A0C035674CE20D661C52DD
+D8441645D344DA03F88381BACA3D8A7E4301DC410BB6BA0102F3CAFA5051A66E
 ```
 
 对不上就说明你拿到的不是这个构建，不要装。
@@ -141,4 +141,4 @@ powershell -File scripts\package-desktop.ps1
 
 本页数字来自 2026-09-24 在一台 x64 Windows 机器上的实测：安装包摘要、静默安装与卸载的实际运行、与纯净基座树的文件数比对，以及跑在安装副本上的桌面冒烟。市场的条目数是从安装副本里读回来的，并且通过它自己的界面真装了一个技能和一个 MCP 服务。双击向导路径和桌面快捷方式任务没有被实际验证。
 
-[校验文件](#校验文件) 一节里的大小与摘要描述的是 release 当前挂着的那个文件，它不是 2026-09-24 那些实测跑过的构建：当时的 `dist-exe\DeepSeek-Harness-Setup.exe` 是 554,728,771 字节、SHA-256 `13EFF8FE3FADF0F31EA4390E1BF0656CF538C686B71ED56E4EF7974C7C418824`，与附件相差 1,376 字节。附件的摘要取的是 GitHub 自己记录的值，这里只复核了它返回的 `Content-Length`，没有把下载到的文件在本地再算一遍。把实测过的那份构建重新挂上，这两个值就会一致。
+在 release 附件被换掉之前，那里下载到的仍是 13:01 之前（03:28）的构建：554,727,395 字节、SHA-256 `3C20FE37E014A76A9D1B268FFAED1B8CE646AB1447A0C035674CE20D661C52DD`，不含市场相关的几处修复。上面的大小与摘要是 13:01 对 `dist-exe\DeepSeek-Harness-Setup.exe` 用文中两条命令实测的值，要挂的就该是这个文件。

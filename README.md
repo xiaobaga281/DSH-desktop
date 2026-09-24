@@ -22,14 +22,14 @@ Take `DeepSeek-Harness-Setup.exe` from the latest [release](https://github.com/x
 | Item | Value |
 | --- | --- |
 | File | `DeepSeek-Harness-Setup.exe` |
-| Size | 554,727,395 bytes |
+| Size | 554,729,567 bytes |
 | App version | `0.1.6-alpha.1` |
 | Windows file version | `0.1.6.1` |
 | Target | x64, Windows 10 or later |
 
 ## Verify the file
 
-Compare the digest before you run anything. The size above is the `Content-Length` the release download serves, and the digest below is the SHA-256 GitHub records for that attached file.
+Compare the digest before you run anything. Both commands were run against this build and return the value below.
 
 ```powershell
 Get-FileHash -Algorithm SHA256 .\DeepSeek-Harness-Setup.exe
@@ -39,7 +39,7 @@ certutil -hashfile .\DeepSeek-Harness-Setup.exe SHA256
 Expected SHA-256:
 
 ```text
-3C20FE37E014A76A9D1B268FFAED1B8CE646AB1447A0C035674CE20D661C52DD
+D8441645D344DA03F88381BACA3D8A7E4301DC410BB6BA0102F3CAFA5051A66E
 ```
 
 A mismatch means the download is not this build. Do not install it.
@@ -141,4 +141,4 @@ This repository carries an Apache-2.0 `LICENSE` file for the material it publish
 
 Numbers in this page come from measurements taken on 2026-09-24 on one x64 Windows machine: the installer digest, the silent install and uninstall runs, the file-count diff against a pristine base tree, and the desktop smoke run against the installed copy. The marketplace counts were read back from the installed copy, and one skill and one MCP server were installed through its own UI. The double-click wizard path and the desktop-shortcut task were not exercised.
 
-The digest and size in [Verify the file](#verify-the-file) describe the file the release currently attaches, which is not the build those 2026-09-24 measurements ran on: `dist-exe\DeepSeek-Harness-Setup.exe` there is 554,728,771 bytes at SHA-256 `13EFF8FE3FADF0F31EA4390E1BF0656CF538C686B71ED56E4EF7974C7C418824`, 1,376 bytes away from the attached file. The attached file's digest is GitHub's own recorded value; only its `Content-Length` was re-checked here, and no local copy of it was hashed. Re-attaching the measured build would make the two agree.
+Until the release asset is replaced, the download there is the 03:28 build (554,727,395 bytes, SHA-256 `3C20FE37E014A76A9D1B268FFAED1B8CE646AB1447A0C035674CE20D661C52DD`), which predates the marketplace fixes. The values above were measured at 13:01 on `dist-exe\DeepSeek-Harness-Setup.exe` with both commands shown, and that is the file to attach.
