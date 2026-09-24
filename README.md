@@ -97,17 +97,6 @@ The uninstaller removes the application directory and its own Start Menu entry. 
 
 The base project ships a CLI and a plugin kernel. This build turns it into a desktop product. The base ships a CLI and a plugin kernel; this build is a desktop product maintained on top of it. [IMPROVEMENTS.md](IMPROVEMENTS.md) carries the full list, grouped by what you can do differently, together with the commands that re-derive every count from the capsule.
 
-| Area | What you get that the base does not do |
-| --- | --- |
-| Desktop shell | Native window with its own chrome, per-user installer, portable package layout, Windows toast identity that names the finished task, and a notification sound the renderer plays |
-| Agent teams | Built-in team templates, an office view, a plan budget gate per stage, and per-stage owners |
-| Session council | Peer sessions that exchange posts through `peer_*` tools and a council panel |
-| Computer and browser control | A resident desktop driver for pointer and screen access, a control indicator, and an in-app browser panel with provider depth |
-| Memory and decisions | Distillation, retrieval, and consolidation, plus in-repo Agent Notes that record why each design choice was made |
-| Chinese product surface | Localized settings shell with reordered sections, model catalog fetch, themes and backgrounds, a desktop pet, and archive semantics with permanent delete. The marketplace reads 12 built-in and 20 GitHub skills plus 165 MCP registry entries, and installs land in `dsh-home\skills` and a managed block of `cordis.patch.yml` |
-| Media | Media tools and a long-video team that plans by form rather than a fixed clip length |
-| Upgrades | A self-contained capsule so a new base version replays every customization through a real three-way merge, with three registration gates and one upgrade driver |
-
 ## Known limitations
 
 - The 15-item desktop smoke run against this installed copy returns 14 pass, 0 fail, 1 skip once you have chosen a workspace (see [First run](#first-run)). The remaining skip is the tool-row check, which needs a session that has already called a tool.
