@@ -22,7 +22,7 @@ Take `DeepSeek-Harness-Setup.exe` from the latest [release](https://github.com/x
 | Item | Value |
 | --- | --- |
 | File | `DeepSeek-Harness-Setup.exe` |
-| Size | 554,727,395 bytes |
+| Size | 554,728,771 bytes |
 | App version | `0.1.6-alpha.1` |
 | Windows file version | `0.1.6.1` |
 | Target | x64, Windows 10 or later |
@@ -39,7 +39,7 @@ certutil -hashfile .\DeepSeek-Harness-Setup.exe SHA256
 Expected SHA-256:
 
 ```text
-3C20FE37E014A76A9D1B268FFAED1B8CE646AB1447A0C035674CE20D661C52DD
+13EFF8FE3FADF0F31EA4390E1BF0656CF538C686B71ED56E4EF7974C7C418824
 ```
 
 A mismatch means the download is not this build. Do not install it.
@@ -104,13 +104,13 @@ The base project ships a CLI and a plugin kernel. This build turns it into a des
 | Session council | Peer sessions that exchange posts through `peer_*` tools and a council panel |
 | Computer and browser control | A resident desktop driver for pointer and screen access, a control indicator, and an in-app browser panel with provider depth |
 | Memory and decisions | Distillation, retrieval, and consolidation, plus 156 in-repo Agent Notes that record why each design choice was made |
-| Chinese product surface | Localized settings shell with reordered sections, model catalog fetch, themes and backgrounds, a desktop pet, an MCP marketplace page, and archive semantics with permanent delete |
+| Chinese product surface | Localized settings shell with reordered sections, model catalog fetch, themes and backgrounds, a desktop pet, and archive semantics with permanent delete. The marketplace reads 12 built-in and 20 GitHub skills plus 165 MCP registry entries, and installs land in `dsh-home\skills` and a managed block of `cordis.patch.yml` |
 | Media | Media tools and a long-video team that plans by form rather than a fixed clip length |
 | Upgrades | A self-contained capsule so a new base version replays every customization through a real three-way merge, with three registration gates and one upgrade driver |
 
 ## Known limitations
 
-- The 15-item desktop smoke on a fresh store returns 12 pass, 1 fail, 2 skip. The one failure is the composer waiting for a workspace, which is the state described under [First run](#first-run), and a source checkout in the same state reproduces it.
+- The 15-item desktop smoke run against this installed copy returns 14 pass, 0 fail, 1 skip once you have chosen a workspace (see [First run](#first-run)). The remaining skip is the tool-row check, which needs a session that has already called a tool.
 - This build is x64 Windows only.
 - It is a personal fork maintained alongside the base project, so expect no upgrade promise, no support channel, and no security advisory flow.
 
@@ -139,4 +139,4 @@ This repository carries an Apache-2.0 `LICENSE` file for the material it publish
 
 ## Dev Note
 
-Numbers in this page come from measurements taken on 2026-09-24 on one x64 Windows machine: the installer digest, the silent install and uninstall runs, the file-count diff against a pristine base tree, and the desktop smoke pair (installed copy versus source checkout). The double-click wizard path and the desktop-shortcut task were not exercised.
+Numbers in this page come from measurements taken on 2026-09-24 on one x64 Windows machine: the installer digest, the silent install and uninstall runs, the file-count diff against a pristine base tree, and the desktop smoke run against the installed copy. The marketplace counts were read back from the installed copy, and one skill and one MCP server were installed through its own UI. The double-click wizard path and the desktop-shortcut task were not exercised.
