@@ -96,6 +96,7 @@ The uninstaller removes the application directory and its own Start Menu entry. 
 ## What this build changes over the base
 
 The base project ships a CLI and a plugin kernel. This build turns it into a desktop product. Measured on 2026-09-24 against a pristine copy of the same base version: 11,239 base files become 11,856, of which 440 are modified base files and 617 are added here. Nothing is deleted. The work is grouped into 40 capability surfaces.
+The full list, grouped by what you can do differently and with the commands that re-derive every number, is in [IMPROVEMENTS.md](IMPROVEMENTS.md).
 
 | Area | What you get that the base does not do |
 | --- | --- |
